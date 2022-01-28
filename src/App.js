@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import { Link, Route, Switch } from "react-router-dom";
+import "./App.scss";
+import BetterClock from "./components/BetterClock";
+import Clock from "./components/Clock";
+import Count from "./components/Count";
+import MagicBox from "./components/MagicBox";
+import NotFound from "./components/NotFound";
+import TodoList from "./components/TodoList";
+import TodoList2 from "./components/TodoList2";
 
 function App() {
+  const [hide, setHide] = useState(true);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Header</h1>
+
+      <Link to="/todos">Todos</Link>
+      <br />
+      <Link to="/count">Count</Link>
+
+      <Switch>
+        <Route path="/todos" component={TodoList2} />
+        <Route path="/count" component={Count} exact />
+        <Route component={NotFound} />
+      </Switch>
+
+      <h1>Footer</h1>
     </div>
   );
 }

@@ -1,0 +1,15 @@
+.color-box {
+  $size: 100px;
+
+  width: $size;
+  height: $size;
+  margin: 10px 10px;
+
+  border-radius: 5px;
+
+  transition: all 0.25s linear;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
